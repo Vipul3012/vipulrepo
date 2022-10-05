@@ -24,7 +24,7 @@ jobs:
     steps:
       - name: JS Action
         id: greet
-        uses: actions/hello-world-javascript-action@v3
+        uses: actions/hello-world-javascript-action@v1.1
         with:
           who-to-greet: Vipul
       - name: greeting time
