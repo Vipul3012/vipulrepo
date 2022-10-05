@@ -18,3 +18,14 @@ jobs:
           print
           (platform.processor())
         shell: python
+  
+  run-github-actiondemo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: JS Action
+        id: greet
+        uses: actions/hello-world-javascript-action@v3
+        with:
+          who-to-greet: Vipul
+      - name: greeting time
+        run: echo "${{ steps.greet.outputs.time }}"
