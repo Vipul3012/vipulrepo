@@ -1,0 +1,31 @@
+name: Shell Commands 
+
+on: [ push, pull_request ]
+jobs:
+  run-shell-command:              
+    runs-on: ubuntu-latest          
+    steps: 
+      - name: echo a string
+        run: echo "Hello World"
+        
+      - name: multiline script 
+        run: |
+           node -v 
+           npm -v
+      - name: python Command 
+        run: |
+          import platform 
+          print
+          (platform.processor())
+        shell: python
+  
+  run-github-actiondemo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: JS Action
+        id: greet
+        uses: actions/hello-world-javascript-action@v1.1
+        with:
+          who-to-greet: Vipul
+      - name: greeting time
+        run: echo "${{ steps.greet.outputs.time }}"
